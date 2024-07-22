@@ -48,11 +48,35 @@ app.post("/interactions", async function (req, res) {
       });
     }
 
-    if (data.name === "cadeSeuPai") {
+    if (data.name === "cade_o_pai_de") {
+      let response = "";
+      const value = data.options[0].value;
+      switch (value) {
+        case "gui":
+          response = "sla kkkkk";
+          break;
+        case "sivas":
+          response = "na telecom";
+          break;
+        case "biel":
+          response = "trabalhando";
+          break;
+        case "gustavo":
+          response = "trabalhando";
+          break;
+        case "murilo":
+          response = "em casa";
+          break;
+
+        default:
+          response = "esse cara tem pai?";
+          break;
+      }
+
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: `${data}`,
+          content: response,
         },
       });
     }
