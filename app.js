@@ -42,6 +42,7 @@ app.post("/interactions", async function (req, res) {
    * Handle slash command requests
    * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
    */
+  console.log(req.body);
   if (type === InteractionType.APPLICATION_COMMAND) {
     const { name } = data;
 
@@ -56,13 +57,13 @@ app.post("/interactions", async function (req, res) {
         },
       });
     }
-    if (name === "challenge") {
+    if (name === "lumy") {
       // Send a message into the channel where command was triggered from
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           // Fetches a random emoji to send from a helper function
-          content: "desafio concluido" + getRandomEmoji(),
+          content: "opa" + getRandomEmoji(),
         },
       });
     }
