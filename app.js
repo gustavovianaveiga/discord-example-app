@@ -29,12 +29,25 @@ app.post("/interactions", async function (req, res) {
     return res.send({ type: InteractionResponseType.PONG });
   }
 
-  return res.send({
-    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-    data: {
-      content: "opa" + getRandomEmoji(),
-    },
-  });
+  if (type === InteractionType.APPLICATION_COMMAND) {
+    if (data.name == "lumy") {
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: "você te comprimentar" + getRandomEmoji(),
+        },
+      });
+    }
+
+    if (data.name == "test") {
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: "opa, ta testado" + getRandomEmoji(),
+        },
+      });
+    }
+  }
 });
 
 app.listen(PORT, () => {
