@@ -1,7 +1,7 @@
 {
-  "name": "getting-started",
+  "name": "FII bot",
   "version": "1.0.0",
-  "description": "Discord example app",
+  "description": "Discord bot FII",
   "main": "app.js",
   "type": "module",
   "engines": {
