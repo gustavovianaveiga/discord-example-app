@@ -30,7 +30,7 @@ const activeGames = {};
 app.post("/interactions", async function (req, res) {
   // Interaction type and data
   const { type, id, data } = req.body;
-
+  console.log(req.body);
   /**
    * Handle verification requests
    */
@@ -42,7 +42,15 @@ app.post("/interactions", async function (req, res) {
    * Handle slash command requests
    * See https://discord.com/developers/docs/interactions/application-commands#slash-commands
    */
-  console.log(req.body);
+
+  return res.send({
+    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+    data: {
+      // Fetches a random emoji to send from a helper function
+      content: "opa" + getRandomEmoji(),
+    },
+  });
+
   if (type === InteractionType.APPLICATION_COMMAND) {
     const { name } = data;
 
@@ -59,13 +67,6 @@ app.post("/interactions", async function (req, res) {
     }
     if (name === "lumy") {
       // Send a message into the channel where command was triggered from
-      return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          // Fetches a random emoji to send from a helper function
-          content: "opa" + getRandomEmoji(),
-        },
-      });
     }
   }
 });
