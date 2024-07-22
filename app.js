@@ -34,7 +34,7 @@ app.post("/interactions", async function (req, res) {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: "você te comprimentar" + getRandomEmoji(),
+          content: "vc ta comprimentado" + getRandomEmoji(),
         },
       });
     }
@@ -44,6 +44,15 @@ app.post("/interactions", async function (req, res) {
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           content: "opa, ta testado" + getRandomEmoji(),
+        },
+      });
+    }
+
+    if (data.name === "cadeSeuPai") {
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: `${data}`,
         },
       });
     }

@@ -39,12 +39,52 @@ const CHALLENGE_COMMAND = {
   ],
   type: 1,
 };
+const PAI_COMMAND = {
+  name: "cade_o_pai_de",
+  description: "encontre seu pai",
+  options: [
+    {
+      type: 3,
+      name: "object",
+      description: "escolha a pessoa",
+      required: true,
+      choices: [
+        {
+          name: "biel",
+          value: "biel",
+        },
+        {
+          name: "gui",
+          value: "gui",
+        },
+        {
+          name: "sivas",
+          value: "sivas",
+        },
+        {
+          name: "murilo",
+          value: "murilo",
+        },
+        {
+          name: "gustavo",
+          value: "gustavo",
+        },
+      ],
+    },
+  ],
+  type: 1,
+};
 const LUMY_COMMAND = {
   name: "lumy",
   description: "vou te comprimentar",
   type: 1,
 };
 
-const ALL_COMMANDS = [TEST_COMMAND, CHALLENGE_COMMAND, LUMY_COMMAND];
+const ALL_COMMANDS = [
+  TEST_COMMAND,
+  CHALLENGE_COMMAND,
+  LUMY_COMMAND,
+  PAI_COMMAND,
+];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
